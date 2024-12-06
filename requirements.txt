@@ -1,0 +1,10 @@
+flask
+tensorflow
+h5py
+Werkzeug
+numpy
+Pillow
+scikit-learn
+transformers
+torch
+tf-keras

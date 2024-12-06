@@ -1,0 +1,16 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Environment files
+*.env
+
+# Uploaded files
+static/*
+
+# Docker-related files
+*.log
+*.pid
+
+# Other
+reg_model.pkl  # Exclude if the model is large; alternatively, include it

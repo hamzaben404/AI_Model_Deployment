@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Model Deployment - Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        ul {
+            list-style: square;
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 4px;
+            color: #d6336c;
+        }
+        .commands {
+            background: #f9f9f9;
+            padding: 10px;
+            border-left: 4px solid #ccc;
+            margin: 10px 0;
+            font-family: "Courier New", Courier, monospace;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the AI Model Deployment Application</h1>
+        <p>This application is designed to demonstrate how to deploy various AI models using Flask and Docker. Below, you will find an overview of the application's endpoints, how it works, and step-by-step instructions to deploy it automatically.</p>
+
+        <h2>Available Endpoints</h2>
+        <ul>
+            <li><b>/predict:</b> Performs image classification using the VGG16 model. Upload an image file to get predictions of objects in the image.</li>
+            <li><b>/regpredict:</b> Provides predictions using a regression model. Send numerical features in JSON format to receive predictions.</li>
+            <li><b>/textgen:</b> Generates text using the Hugging Face GPT-2 model. Provide a text prompt in JSON format to receive generated text.</li>
+            <li><b>/home:</b> Displays this documentation page.</li>
+        </ul>
+
+        <h2>Application Architecture</h2>
+        <p>The application is structured as follows:</p>
+        <ul>
+            <li><b>Flask:</b> A lightweight Python framework used to expose AI models through RESTful APIs.</li>
+            <li><b>VGG16:</b> A pre-trained deep learning model for image classification.</li>
+            <li><b>Regression Model:</b> A Pickle-based machine learning model trained for regression tasks.</li>
+            <li><b>Hugging Face:</b> A text generation model (GPT-2) for natural language tasks.</li>
+            <li><b>Docker:</b> A containerization platform to package and deploy the application.</li>
+        </ul>
+
+        <h2>Deployment Instructions</h2>
+        <p>Follow these steps to deploy the application automatically:</p>
+        
+        <h3>1. Clone the Repository</h3>
+        <div class="commands">
+            git clone https://github.com/hamzaben404/AI_Model_Deployment.git <br>
+            cd AI_Model_Deployment
+        </div>
+
+        <h3>2. Build and Run the Docker Container</h3>
+        <p>Ensure Docker is installed on your machine, then run the following commands:</p>
+        <div class="commands">
+            docker-compose build <br>
+            docker-compose up
+        </div>
+
+        <h3>3. Access the Application</h3>
+        <p>Once the Docker container is running, you can access the application at:</p>
+        <ul>
+            <li><b>Base URL:</b> <code>http://127.0.0.1:5000</code></li>
+            <li>Access specific endpoints such as <code>/predict</code>, <code>/regpredict</code>, or <code>/textgen</code> using tools like Postman or cURL.</li>
+        </ul>
+
+        <h2>Testing the Application</h2>
+        <p>Here are examples of how to test the endpoints:</p>
+        <ul>
+            <li><b>Image Classification:</b></li>
+            <div class="commands">
+                curl -X POST -F "file=@path_to_image.jpg" http://127.0.0.1:5000/predict
+            </div>
+            <li><b>Regression Model:</b></li>
+            <div class="commands">
+                curl -X POST -H "Content-Type: application/json" \
+                -d '{"features": [1.5]}' \
+                http://127.0.0.1:5000/regpredict
+            </div>
+            <li><b>Text Generation:</b></li>
+            <div class="commands">
+                curl -X POST -H "Content-Type: application/json" \
+                -d '{"prompt": "Once upon a time"}' \
+                http://127.0.0.1:5000/textgen
+            </div>
+        </ul>
+
+        <div class="footer">
+            <p>&copy; 2024 AI Model Deployment Documentation - Benatmane Hamza</p>
+        </div>
+    </div>
+</body>
+</html>
