@@ -1,7 +1,3 @@
-Here's the complete content for your `README.md` file, written in a professional and informative way:
-
----
-
 # **AI Model Deployment**
 
 This project demonstrates how to deploy various AI models using Flask and Docker. The application provides RESTful APIs for interacting with the models, including image classification, regression predictions, and text generation.
